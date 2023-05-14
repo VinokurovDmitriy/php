@@ -1,6 +1,6 @@
 <?php
 //. Он полезен, когда мы хотим инкапсулировать создание сложного объекта. Мы просто расскажем фабрике, какому строителю доверить создание продукта:
-class Product
+class Product //какой то продукт
 {
   private $name;
 
@@ -15,9 +15,9 @@ class Product
   }
 }
 
-class Factory
+class Factory //фабрика
 {
-    private $builder;
+    private $builder; //мы не знаем какой именно буилдер
 
     public function __construct(Builder $builder)
     {
@@ -25,13 +25,13 @@ class Factory
         $this->builder->buildProduct();
     }
 
-    public function getProduct()
+    public function getProduct() // получаем продукт
     {
         return $this->builder->getProduct();
     }
 }
 
-abstract class Builder
+abstract class Builder //абстрактный буилдер
 {
     protected $product;
 
@@ -50,8 +50,8 @@ class FirstBuilder extends Builder
 {
     public function buildProduct()
     {
-        parent::buildProduct();
-        $this->product->setName('produced of first builder');
+        parent::buildProduct(); //создаетмся продукт в суперклассе
+        $this->product->setName('produced of first builder'); //присваивсется имя методом суперкласса
     }
 }
 
