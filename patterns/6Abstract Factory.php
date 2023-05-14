@@ -1,5 +1,6 @@
 <?php
-
+//мы не знаем какую фабрику использовать
+//мы инкапсулируем логику выбора фабрики в абстрактном классе
 class Config
 {
     public static $factory = 1;
@@ -12,6 +13,9 @@ interface Product
 
 abstract class AbstractFactory
 {
+    /**
+     * Возвращает фабрику
+     */
     public static function getFactory()
     {
         if(Config::$factory ==  1) {
